@@ -15,7 +15,8 @@ public class SetupClass {
     private static WebDriver driver;
     private static BasePage basePage;
 
-    @Before
+    @SuppressWarnings("deprecation")
+	@Before
     public void setUp() {
         String projectPath = System.getProperty("user.dir");
         String propertyFile = projectPath + "/project.properties";

@@ -1,11 +1,5 @@
 package StepDefinitions;
-
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -49,6 +43,8 @@ public class GoogleSearchResults {
 
 	@When("hits enter")
 	public void hits_enter() {
+		boolean verifyElementPresent = basePage.verifyElementPresent(Constants.NAME_TEXT_FIELD);
+		System.out.println(verifyElementPresent);
 		System.out.println("hits enter");
 	}
 

@@ -12,45 +12,53 @@ public class BasePage {
         this.driver = driver;
     }
 
-    
-
     public void sendKeys(String locator, String text) {
-        WebElement element = driver.findElement(By.xpath(locator));
+        WebElement element = driver.findElement(getBy(locator));
         element.sendKeys(text);
     }
 
     public void selectDropdownByVisibleText(String locator, String visibleText) {
-        WebElement dropdownElement = driver.findElement(By.xpath(locator));
+        WebElement dropdownElement = driver.findElement(getBy(locator));
         Select dropdown = new Select(dropdownElement);
         dropdown.selectByVisibleText(visibleText);
     }
 
     public void click(String locator) {
-        WebElement element = driver.findElement(By.xpath(locator));
+        WebElement element = driver.findElement(getBy(locator));
         System.out.println("Before clicking"+ element.toString());
-        System.out.println("Before clicking"+ locator);
-
         element.click();
+    }
+    
+    public boolean verifyElementPresent(String locator) {
+    	System.out.println("Name locator"+locator);
+        boolean element = driver.findElement(getBy(locator)).isDisplayed();
+		return element;
     }
 
     private By getBy(String locator) {
         if (locator.startsWith("//")) {
             return By.xpath(locator);
         } else if (locator.startsWith("id=")) {
-            return By.id(locator.substring(3));
+        	String[] split = locator.split("=");
+            return By.id(split[1]);
         } else if (locator.startsWith("name=")) {
-            return By.name(locator.substring(5));
+        	String[] split = locator.split("=");
+            return By.name(split[1]);
         } else if (locator.startsWith("class=")) {
-            return By.className(locator.substring(6));
+        	String[] split = locator.split("=");
+            return By.className(split[1]);
         } else if (locator.startsWith("css=")) {
-            return By.cssSelector(locator.substring(4));
+        	String[] split = locator.split("=");
+            return By.cssSelector(split[1]);
         } else if (locator.startsWith("link=")) {
-            return By.linkText(locator.substring(5));
+        	String[] split = locator.split("=");
+            return By.linkText(split[1]);
         } else if (locator.startsWith("partialLink=")) {
-            return By.partialLinkText(locator.substring(12));
+        	String[] split = locator.split("=");
+            return By.partialLinkText(split[1]);
         } else {
             // Assuming default is "id"
-            return By.id(locator);
+            return By.xpath(locator);
         }
     }
 
