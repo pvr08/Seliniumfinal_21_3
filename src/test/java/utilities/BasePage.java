@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+
 
 public class BasePage {
     protected WebDriver driver;
@@ -60,6 +62,18 @@ public class BasePage {
             // Assuming default is "id"
             return By.xpath(locator);
         }
+    }
+    
+	public boolean compareText(String locator,String textToCompare) {
+    	
+        String actualText = driver.findElement(getBy(locator)).getText();
+        Assert.assertEquals("Comparing Text", textToCompare, actualText);
+        if(actualText.equals(textToCompare)) {
+        	return true;
+        }else {
+        	return false;
+        }
+		
     }
 
 }
