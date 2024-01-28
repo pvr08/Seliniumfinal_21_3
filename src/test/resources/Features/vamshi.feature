@@ -33,7 +33,7 @@ Feature: Vamshi test Cases
     
     
  @tag3
- Scenario: Validate phone, location and email in contact us page
+ Scenario: Validate phone, location and email labels in contact us page
     Given browser is open
     When user is on nandamurisloution website
     And user is navigated to contact us page
