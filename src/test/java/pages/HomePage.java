@@ -22,9 +22,9 @@ public class HomePage {
         this.basePage = SetupClass.getBasePage();
     }
     
-    @And("validate api")
-    public void validate_api() {
-		System.out.println("Rest assured started");
-		
-    }
+//    @And("validate api")
+//    public void validate_api() {
+//		System.out.println("Rest assured started");
+//		
+//    }
 }
