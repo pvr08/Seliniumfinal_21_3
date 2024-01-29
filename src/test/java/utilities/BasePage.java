@@ -1,5 +1,7 @@
 package utilities;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -33,8 +35,11 @@ public class BasePage {
 
 	public boolean verifyElementPresent(String locator) {
 
-		boolean element = driver.findElement(getBy(locator)).isDisplayed();
-		return element;
+		List<WebElement> element = driver.findElements(getBy(locator));
+		if(element.size()>0) 
+			return true;
+		else
+			return false;
 	}
 
 	private By getBy(String locator) {
@@ -94,5 +99,13 @@ public class BasePage {
 		Assert.assertEquals(verifyElementPresent(locator), true," Element Present");
 
 	}
+	
+	public void switchToIframe() {
+        driver.switchTo().frame(0); 
+    }
+ 
+    public void backToNormal() {
+        driver.switchTo().defaultContent();
+    }
 
 }

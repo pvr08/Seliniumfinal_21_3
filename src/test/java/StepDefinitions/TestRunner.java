@@ -12,7 +12,7 @@ import io.cucumber.junit.CucumberOptions;
 	features="src/test/resources/Features/googleSearch.feature", //file name to be executed should go here( can be multiple as array)
 	glue= {"StepDefinitions","pages"}, // where are our step definitions are present
 	monochrome = true,
-	plugin = {"pretty","html:test-output/HtmlReports"}
+	plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 		
 	)
 public class TestRunner {

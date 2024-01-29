@@ -1,5 +1,7 @@
 package StepDefinitions;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -46,6 +48,7 @@ public class GoogleSearchResults {
 		boolean verifyElementPresent = basePage.verifyElementPresent(Constants.NAME_TEXT_FIELD);
 		System.out.println(verifyElementPresent);
 		System.out.println("hits enter");
+		Assert.assertEquals("Pass","Fail","Comparing Text");
 	}
 
 	@Then("End of the test")
