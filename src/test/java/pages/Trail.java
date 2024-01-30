@@ -1,21 +1,44 @@
 package pages;
-import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.given;
 
-import io.restassured.response.ValidatableResponse;
+import org.openqa.selenium.WebDriver;
+
+import StepDefinitions.SetupClass;
+import io.cucumber.java.en.And;
+import utilities.BasePage;
+import utilities.TestUtils;
 
 public class Trail {
+	
+	private WebDriver driver;
+    private BasePage basePage;
 
-	public static void main(String args[]) {
-		String baseUri = "http://localhost:3000/";
-		
-		ValidatableResponse statusCode = given().baseUri(baseUri)
-				.when().get("/data/invoiceNo/106-35-6779")
-				.then().assertThat().statusCode(200);
-		System.out.println(statusCode.toString());
-		
-		String responseBody = statusCode.extract().body().asString();
-        
-		System.out.println("Response Body: " + responseBody);
-		
-	} 
+    public Trail() {
+        this.driver = SetupClass.getDriver();
+        this.basePage = SetupClass.getBasePage();
+    }
+    @And("validate api")
+    public void sample() {
+        // Define the base URI
+    	
+    	String projectPath = System.getProperty("user.dir");
+        String propertyFile = projectPath + "/project.properties";
+        TestUtils utils = new TestUtils(propertyFile);
+        String baseUri = utils.getProperty("BaseURI");
+
+        String username = utils.getProperty("Username");
+        String password = utils.getProperty("Password");
+
+        String credentials = org.apache.commons.codec.binary.Base64.encodeBase64String((username + ":" + password).getBytes());
+
+        given()
+            .baseUri(baseUri)
+            .header("Authorization", "Basic " + credentials)
+            .header("Accept", "application/json")
+        .when()
+            .get("issue/KAN-1")
+        .then()
+            .log().all()
+            .assertThat().statusCode(200);
+    }
 }
