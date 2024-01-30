@@ -29,7 +29,7 @@ public class GoogleSearchResults {
 	
 	}
 
-	@And("user is on google search")
+	@And("user is on nandamurisloution website")
 	public void user_is_on_google_search() {
 		System.out.println("user is on google search");
 		driver.navigate().to(utils.getProperty("Public_URL"));
@@ -48,7 +48,7 @@ public class GoogleSearchResults {
 		System.out.println("hits enter");
 	}
 
-	@Then("End of the test")
+	@Then("end of test cases")
 	public void user_is_navigated_to_search_results_page() {
 		System.out.println("user is navigated to search results page");
 		driver.close();
