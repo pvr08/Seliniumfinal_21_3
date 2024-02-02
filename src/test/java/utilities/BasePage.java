@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
@@ -94,5 +95,21 @@ public class BasePage {
 		Assert.assertEquals(verifyElementPresent(locator), true," Element Present");
 
 	}
+	public void switchToIframe() {
+        driver.switchTo().frame(0); // Assuming the iframe is the first one on the page
+    }
+ 
+    public void backToNormal() {
+        driver.switchTo().defaultContent();
+    }
+	 public static void hoverOverElement(WebDriver driver, String elementXPath) {
+	        Actions actions = new Actions(driver);
+	        WebElement element = driver.findElement(By.xpath(elementXPath));
+	        actions.moveToElement(element).perform();
+	    }
+	    public void selectlistElement( String visibleText) {
+	   	 String optionXPath = String.format("//ul[@class='sub-menu']//a[text()='%s']", visibleText);
+	        driver.findElement(By.xpath(optionXPath)).click();
+	    }
 
 }
