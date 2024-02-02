@@ -87,18 +87,13 @@ import StepDefinitions.SetupClass;
 	    	basePage.validateElementPresentAssertion(Constants.Home_button);
 	    	
 	    	basePage.compareText(Constants.SERVIVE_DD, "Services");
-	    	//basePage.hoverOverElement(driver, Constants.SERVIVE_DD);
-//	    	if(basePage.verifyElementPresent("") && basePage.compareText("", "About Us")) {
-//	    		return true;
-//	    	}
-//	    	else
-//	    		return false;
+	    	
 	    }
 	    
 	     
 	    @And("user Expands  Services dropdown")
 		public void hover_service() throws InterruptedException {
-	    	//basePage.verifyElementPresent(Constants.SERVIVE_DD);
+	    	
 	    	basePage.validateElementPresentAssertion(Constants.SERVIVE_DD);
 	    	
 	    	
@@ -264,7 +259,7 @@ String currentTitle = driver.getTitle();
 		    public void main_label() throws InterruptedException {
 		    	basePage.validateElementPresentAssertion(Constants.main_home_label);
 
-		    	
+		    	basePage.scrollToElement(Constants.main_home_label);
 		    		basePage.compareText(Constants.main_home_label, "We offer you the best IT practise and services");
 		    		System.out.println("Main label is visible");		    	
 		    	
@@ -273,6 +268,7 @@ String currentTitle = driver.getTitle();
 		  @And("user is able to see Empower, Scale, Succeed: Unleashing IT Services for Your Agency Benefit label")
 		    public void Empower_label() throws InterruptedException {
 			  Thread.sleep(2000);
+			  basePage.scrollToElement(Constants.Empower_scale_label);
 			 basePage.validateElementPresentAssertion(Constants.Empower_scale_label);
 		    	
 		     basePage.compareText(Constants.Empower_scale_label,"Unleashing IT Services for Your Agency's Benefit");
@@ -292,6 +288,7 @@ String currentTitle = driver.getTitle();
 		  @And("user is able to see the Image1 and image2")
 		    public void image1_and2() throws InterruptedException {
 			  Thread.sleep(2000);
+			  basePage.scrollToElement(Constants.Image1);
 			  basePage.validateElementPresentAssertion(Constants.Image1);
 			  basePage.validateElementPresentAssertion(Constants.Image2) ;
 			  System.out.print(" images visible");
@@ -303,6 +300,7 @@ String currentTitle = driver.getTitle();
 		  
 		  @And("user is able to see Our Technology label")
 		    public void Our_Technology_label() throws InterruptedException {
+			  basePage.scrollToElement(Constants.Our_Technology);
 			  basePage.validateElementPresentAssertion(Constants.Our_Technology);
 			  basePage.compareText(Constants.Our_Technology, "Technology");
 		    	
@@ -311,6 +309,7 @@ String currentTitle = driver.getTitle();
 		  @And("user is able to see Testing service logo")
 		    public void Testing_logo_check() throws InterruptedException {
 			  Thread.sleep(2000);
+			  basePage.scrollToElement(Constants.Testing_logo);
 			  basePage.validateElementPresentAssertion(Constants.Testing_logo);
 		    	
 		    		System.out.println("testing logo visible");
@@ -319,7 +318,7 @@ String currentTitle = driver.getTitle();
 		  @And("user is able to see Testing Label")
 		    public void Testing_label() throws InterruptedException {
 		    	
-		    	
+			  basePage.scrollToElement(Constants.Testing_label);
 		    	basePage.validateElementPresentAssertion(Constants.Testing_label);
 		    		basePage.compareText(Constants.Testing_label, "Testing");
 		    		System.out.println("testing lebel visible");
@@ -347,7 +346,7 @@ String currentTitle = driver.getTitle();
 			}
 		  @And("user is able to see We focus on the best practices for it solutions and services label")
 		    public void We_Practice_label() throws InterruptedException {
-		    	
+			  basePage.scrollToElement(Constants.We_focus_label1);
 		    	basePage.validateElementPresentAssertion(Constants.We_focus_label1);
 		    		basePage.compareText(Constants.We_focus_label1, "We focus on the best practices for it solutions and services");
 		    	
@@ -357,6 +356,7 @@ String currentTitle = driver.getTitle();
 		  @And("user is able to see Full Stack service logo")
 		    public void Fullstack_logo_check() throws InterruptedException {
 			  Thread.sleep(2000);
+			  basePage.scrollToElement(Constants.fullstack_logo);
 			  basePage.validateElementPresentAssertion(Constants.fullstack_logo);
 		    		System.out.println("fullstack logo visible");
 		    	
@@ -364,6 +364,7 @@ String currentTitle = driver.getTitle();
 		    
 		  @And("user is able to see Full Stack Label")
 		    public void Fullstack_label() throws InterruptedException {
+			  basePage.scrollToElement(Constants.fullstack_label);
 			 basePage.validateElementPresentAssertion(Constants.fullstack_label) ;
 		    		basePage.compareText(Constants.fullstack_label, "Full Stack");
 		    		System.out.println("fullstack lebel visible");
@@ -393,6 +394,8 @@ String currentTitle = driver.getTitle();
 		  @And("user is able to see DevOps service logo")
 		    public void DevOps_logo_check() throws InterruptedException {
 			  Thread.sleep(2000);
+			  basePage.scrollToElement(Constants.Devops_logo);
+
 			  basePage.validateElementPresentAssertion(Constants.Devops_logo);
 			  
 		    		System.out.println("devops logo visible");
@@ -400,6 +403,8 @@ String currentTitle = driver.getTitle();
 		    }
 		  @And("user is able to see DevOps Label")
 		    public void DevOps_label() throws InterruptedException {
+			  basePage.scrollToElement(Constants.Devops_label);
+
 			  basePage.validateElementPresentAssertion(Constants.Devops_label) ;
 		    		basePage.compareText(Constants.Devops_label, "Devops");
 		    		System.out.println("devops lebel visible");
@@ -430,7 +435,9 @@ String currentTitle = driver.getTitle();
 		  @And("user is able to see the video button logo")
 		    public void Videobutton_logo_check() throws InterruptedException {
 			  
-			  Thread.sleep(4000);
+			  //Thread.sleep(4000);
+			  basePage.scrollToElement(Constants.video_btn_logo);
+			  Thread.sleep(2000);
 			  basePage.validateElementPresentAssertion(Constants.video_btn_logo);
 			  
 
@@ -454,6 +461,8 @@ String currentTitle = driver.getTitle();
 		    public void About_Company_label() throws InterruptedException {
 
 			 Thread.sleep(5000);
+			  basePage.scrollToElement(Constants.About_Company);
+
 		    	basePage.validateElementPresentAssertion(Constants.About_Company) ;
 		    		 basePage.compareText(Constants.About_Company, "About Company");
 		    		System.out.println("about company visible");
@@ -462,12 +471,14 @@ String currentTitle = driver.getTitle();
 		    }
 		  @And("user is able to see Empowering the future of tech with our cutting-edge IT services, paving the way for innovation and success label")
 		    public void Empowering_label() throws InterruptedException {
+			  basePage.scrollToElement(Constants.Empowering_label);
 
 		    	basePage.validateElementPresentAssertion(Constants.Empowering_label);
 		    	 basePage.compareText(Constants.Empowering_label, "Empowering the future of tech with our cutting-edge IT services, paving the way for innovation and success");
 		    		
 		    } @And("user is able to see Facebook logo")
 		    public void Facebook_logo() throws InterruptedException {
+		    	 basePage.scrollToElement(Constants.Empowering_label);
 		    	basePage.validateElementPresentAssertion(Constants.Facebook_logo);
 		    	
 		    	
@@ -485,6 +496,7 @@ String currentTitle = driver.getTitle();
 		    	
 		    } @And("user is able to see Contacts label")
 		    public void Contacts_label() throws InterruptedException {
+		    	 basePage.scrollToElement(Constants.Contacts_footer);
 		    	basePage.validateElementPresentAssertion(Constants.Contacts_footer);
 		    	basePage.compareText(Constants.Contacts_footer, "Contacts");
 		    	
