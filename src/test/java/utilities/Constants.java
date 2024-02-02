@@ -11,7 +11,7 @@ public class Constants {
 	//1st scenario    
 	
 		public static final String GET_SEE_NAME_LABLE ="(//label[@for='name'])[1]";
-		public static final String GET_SEE_EMAIL_LABLE ="//label[@for='email']";
+		public static final String GET_SEE_EMAIL_LABLE ="(//label[@for='email'])[1]";
 		public static final String GET_SEE_SUBJECT_LABLE ="(//label[@for='subject'])[1]";
 		public static final String GET_SEE_CONTACT_LABLE ="//label[normalize-space()='Contact Number']";
 		public static final String GET_SEE_MESSAGE_LABLE ="(//label[@for='message'])[1]";
@@ -31,7 +31,7 @@ public class Constants {
 		
 		
 		//4th scenario
-		public static final String GET_SEE_GMAPS ="(//div[@class='quform-submit-inner'])[1]";
+		public static final String GET_SEE_GMAPS ="(//section[@class='pb-0'])/div/iframe";
 		
 		//5th scenario
 		
@@ -39,6 +39,8 @@ public class Constants {
 		public static final String GET_SEE_TWITTER_ICON ="(//i[@class='fab fa-twitter'])[2]";
 		public static final String GET_SEE_INSTA_ICON ="(//a[@href='#!'])[7]";
 		public static final String GET_SEE_LINKEDIN_ICON ="(//a[@href='#!'])[8]";
+		
+		
 	
   public static final String GET_ABOUT_US = "//*[@id='nav']/li[2]/a";
 	

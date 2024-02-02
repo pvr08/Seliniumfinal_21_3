@@ -51,7 +51,7 @@ Feature: Vamshi test Cases
     When user is on nandamurisloution website
     When user clicks contact us from header
     Then user is navigated to contact us page
-    And user is able
+    And user is able see google maps iframe
     Then end of test cases
     
     
