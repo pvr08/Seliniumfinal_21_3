@@ -8,12 +8,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import StepDefinitions.SetupClass;
+import io.cucumber.java.Scenario;
 
 public class BasePage {
 	protected WebDriver driver;
 
+	private Scenario scenario;
+
 	public BasePage(WebDriver driver) {
 		this.driver = driver;
+		this.scenario = SetupClass.getScenario();
 	}
 
 	public void sendKeys(String locator, String text) {
@@ -36,7 +41,7 @@ public class BasePage {
 	public boolean verifyElementPresent(String locator) {
 
 		List<WebElement> element = driver.findElements(getBy(locator));
-		if(element.size()>0) 
+		if (element.size() > 0)
 			return true;
 		else
 			return false;
@@ -76,7 +81,9 @@ public class BasePage {
 		if (actualText.equals(textToCompare)) {
 			return true;
 		} else {
+			elementHighlighter(locator);
 			return false;
+
 		}
 
 	}
@@ -95,17 +102,27 @@ public class BasePage {
 	}
 
 	public void validateElementPresentAssertion(String locator) throws InterruptedException {
-		
-		Assert.assertEquals(verifyElementPresent(locator), true," Element Present");
+
+		Assert.assertEquals(verifyElementPresent(locator), true, " Element Present");
 
 	}
-	
+
 	public void switchToIframe() {
-        driver.switchTo().frame(0); 
-    }
- 
-    public void backToNormal() {
-        driver.switchTo().defaultContent();
-    }
+		driver.switchTo().frame(0);
+	}
+
+	public void backToNormal() {
+		driver.switchTo().defaultContent();
+	}
+
+	public void elementHighlighter(String locator) {
+		try {
+			WebElement element = driver.findElement(getBy(locator));
+			((JavascriptExecutor) driver).executeScript("arguments[0].style.border='3px solid red'", element);
+		} catch (Exception e) {
+			System.err.println("Error highlighting element: " + e.getMessage());
+			e.printStackTrace();
+		}
+	}
 
 }

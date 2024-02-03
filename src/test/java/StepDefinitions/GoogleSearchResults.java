@@ -1,7 +1,9 @@
 package StepDefinitions;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import com.aventstack.extentreports.Status;
 
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -17,18 +19,21 @@ public class GoogleSearchResults {
 	String propertyFile = projectPath + "/project.properties";
 	TestUtils utils = new TestUtils(propertyFile);
 	
+	private Scenario scenario;
 	private WebDriver driver;
     private BasePage basePage;
 
     public GoogleSearchResults() {
         this.driver = SetupClass.getDriver();
         this.basePage = SetupClass.getBasePage();
+        this.scenario = SetupClass.getScenario();
     }
 
 	@Given("browser is open")
 	public void browser_is_open() {
 		System.out.println("browser is open");
-	
+		scenario.log("Trail Trail Trail");
+
 	}
 
 	@And("user is on google search")
