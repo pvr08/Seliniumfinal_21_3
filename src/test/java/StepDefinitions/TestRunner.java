@@ -1,9 +1,13 @@
 package StepDefinitions;
 
+import java.io.IOException;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
-
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
+import utilities.DeleteReports;
+import utilities.ZipTestResults;
 
 
 @RunWith(Cucumber.class)
@@ -16,5 +20,20 @@ import io.cucumber.junit.CucumberOptions;
 		
 	)
 public class TestRunner {
+    
+	@BeforeClass
+	public static void start_of_the_suite() {
+		System.out.println("Start of the Suite");
+		DeleteReports.deleteTestReportsFolder();
+		System.out.println("Before Everything");
+	}
 	
+    @AfterClass
+    public static void zipTestReportsFolder() throws IOException {
+		System.out.println("Started zipping results folder");
+    	ZipTestResults.zipTestReportsFolder();
+    	System.out.println("Finished zipping results folder");
+    }
+    
+    
 }

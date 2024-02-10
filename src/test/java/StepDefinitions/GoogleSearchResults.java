@@ -1,4 +1,6 @@
 package StepDefinitions;
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import com.aventstack.extentreports.Status;
@@ -10,7 +12,9 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import utilities.BasePage;
 import utilities.Constants;
+import utilities.DeleteReports;
 import utilities.TestUtils;
+import utilities.ZipTestResults;
 
 public class GoogleSearchResults {
 	 
@@ -58,9 +62,8 @@ public class GoogleSearchResults {
 
 	@Then("End of the test")
 	public void user_is_navigated_to_search_results_page() {
-		System.out.println("user is navigated to search results page");
-		driver.close();
-		driver.quit();
+		System.out.println("End of the test");
+		
 	}
-
+	
 }

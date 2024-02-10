@@ -1,19 +1,19 @@
 package StepDefinitions;
 
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
-
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import utilities.BasePage;
+import utilities.DeleteReports;
 import utilities.TestUtils;
+import utilities.ZipTestResults;
 
 public class SetupClass {
 
@@ -21,7 +21,9 @@ public class SetupClass {
 	private static BasePage basePage;
 	private static SetupClass setup = new SetupClass();
 	public static Scenario scn;
-
+	DeleteReports deleteReport = new DeleteReports();
+	ZipTestResults zipReports = new ZipTestResults();
+	
 	@SuppressWarnings("deprecation")
 	@Before
 	public void setUp(Scenario scenario) {
@@ -37,6 +39,7 @@ public class SetupClass {
 
 		basePage = new BasePage(driver);
 		setup.beforeHooks(scenario);
+		
 	}
 
 	private void beforeHooks(Scenario s) {
@@ -75,5 +78,6 @@ public class SetupClass {
 			driver.quit();
 			setup.afterHooks();
 		}
+		
 	}
 }

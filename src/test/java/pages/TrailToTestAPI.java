@@ -1,4 +1,5 @@
 package pages;
+
 import static io.restassured.RestAssured.given;
 
 import org.openqa.selenium.WebDriver;
@@ -8,8 +9,8 @@ import io.cucumber.java.en.And;
 import utilities.BasePage;
 import utilities.TestUtils;
 
+public class TrailToTestAPI {
 
-public class Trail {
 	
 	private WebDriver driver;
     private BasePage basePage;
@@ -18,11 +19,18 @@ public class Trail {
     TestUtils utils = new TestUtils(propertyFile);
     String baseUri = utils.getProperty("BaseURI");
 
-    public Trail() {
+    public TrailToTestAPI() {
         this.driver = SetupClass.getDriver();
         this.basePage = SetupClass.getBasePage();
     }
-    @And("validate api")
+    
+    public static void main(String[] args) {
+    	TrailToTestAPI trail = new TrailToTestAPI();
+    	trail.sendPostRequest();
+    }
+    
+    
+//    @And("validate api")
     public void sample() {
         // Define the base URI
     	
@@ -44,7 +52,7 @@ public class Trail {
             .assertThat().statusCode(200);
     }
     
-    
+//    @And("validate api")
     public void sendPostRequest() {
         // Define the JSON body data
     	String bodyData = "{\n"
