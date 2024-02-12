@@ -2,10 +2,11 @@ package pages;
 
 import static io.restassured.RestAssured.given;
 
+import java.io.File;
+
 import org.openqa.selenium.WebDriver;
 
 import StepDefinitions.SetupClass;
-import io.cucumber.java.en.And;
 import utilities.BasePage;
 import utilities.TestUtils;
 
@@ -26,7 +27,7 @@ public class TrailToTestAPI {
     
     public static void main(String[] args) {
     	TrailToTestAPI trail = new TrailToTestAPI();
-    	trail.sendPostRequest();
+    	trail.sendPostRequestToAddAttachment();
     }
     
     
@@ -53,34 +54,7 @@ public class TrailToTestAPI {
     }
     
 //    @And("validate api")
-    public void sendPostRequest() {
-        // Define the JSON body data
-    	String bodyData = "{\n"
-    			+ "    \"fields\": {\n"
-    			+ "        \"summary\": \"Create new issue for testing from postman\",\n"
-    			+ "        \"description\": {\n"
-    			+ "          \"type\": \"doc\",\n"
-    			+ "          \"version\": 1,\n"
-    			+ "          \"content\": [\n"
-    			+ "            {\n"
-    			+ "              \"type\": \"paragraph\",\n"
-    			+ "              \"content\": [\n"
-    			+ "                {\n"
-    			+ "                  \"type\": \"text\",\n"
-    			+ "                  \"text\": \"description\"\n"
-    			+ "                }\n"
-    			+ "              ]\n"
-    			+ "            }\n"
-    			+ "          ]\n"
-    			+ "        },\n"
-    			+ "        \"issuetype\": {\n"
-    			+ "            \"id\": \"10005\"\n"
-    			+ "        },\n"
-    			+ "        \"project\": {\n"
-    			+ "            \"id\":\"10000\"\n"
-    			+ "        }\n"
-    			+ "    }\n"
-    			+ "}";
+    public void sendPostRequestToAddAttachment() {
 
         // Define the base URI
         String baseUri = utils.getProperty("BaseURI");
@@ -89,17 +63,20 @@ public class TrailToTestAPI {
         String password = utils.getProperty("Password");
         String credentials = org.apache.commons.codec.binary.Base64.encodeBase64String((username + ":" + password).getBytes());
         
+        String issueKey = "KAN-6";
+        String endpoint = "/rest/api/3/issue/" + issueKey + "/attachments";
+        String filePath = projectPath+"/test-output.zip";
+
         // Make the POST request
         given()
-            .baseUri(baseUri)
-            .header("Authorization", "Basic " + credentials)
-            .header("Accept", "application/json")
-            .header("Content-Type", "application/json")
-            .body(bodyData)
+	        .baseUri(baseUri)
+	        .auth().preemptive().basic(username, password)
+	        .header("X-Atlassian-Token", "no-check")
+	        .multiPart("file", new File(filePath))
         .when()
-            .post("issue")
+            .post(endpoint)
         .then()
             .log().all()
-            .assertThat().statusCode(201);
+            .assertThat().statusCode(200);
     }
 }

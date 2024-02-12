@@ -1,5 +1,7 @@
 package StepDefinitions;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -23,6 +25,9 @@ public class SetupClass {
 	public static Scenario scn;
 	DeleteReports deleteReport = new DeleteReports();
 	ZipTestResults zipReports = new ZipTestResults();
+	static String scenarioName ;
+    public static final List<String> failedScenarios = new ArrayList<>();
+
 	
 	@SuppressWarnings("deprecation")
 	@Before
@@ -39,6 +44,7 @@ public class SetupClass {
 
 		basePage = new BasePage(driver);
 		setup.beforeHooks(scenario);
+		scenarioName = scenario.getName();
 		
 	}
 
@@ -48,6 +54,10 @@ public class SetupClass {
 
 	public static Scenario getScenario() {
 		return scn;
+	}
+	
+	public static String getScenarioName() {
+		return scenarioName;
 	}
 	
 	private void afterHooks() {
@@ -60,6 +70,24 @@ public class SetupClass {
 
 	public static BasePage getBasePage() {
 		return basePage;
+	}
+	
+	public static String getJiraFlag() {
+		String projectPath = System.getProperty("user.dir");
+		String propertyFile = projectPath + "/project.properties";
+		TestUtils utils = new TestUtils(propertyFile);
+
+		return utils.getProperty("RaiseBug");
+	}
+
+	public static boolean getJiraFlagStatus() {
+		if(getJiraFlag().equals("true")) {
+			System.err.println("Jira Flag is Activated. ");
+			return true;
+		}else {
+			System.err.println("Jira Flag is Not Activated. ");
+			return false;
+		}
 	}
 
 	@AfterStep
@@ -78,6 +106,8 @@ public class SetupClass {
 			driver.quit();
 			setup.afterHooks();
 		}
-		
+		if(scn.isFailed()) {
+			failedScenarios.add(scn.getName());
+		}
 	}
 }

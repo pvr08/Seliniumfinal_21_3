@@ -7,8 +7,8 @@ import org.junit.runner.RunWith;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import utilities.DeleteReports;
+import utilities.RaiseJiraTicket;
 import utilities.ZipTestResults;
-
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
@@ -25,15 +25,18 @@ public class TestRunner {
 	public static void start_of_the_suite() {
 		System.out.println("Start of the Suite");
 		DeleteReports.deleteTestReportsFolder();
-		System.out.println("Before Everything");
+		SetupClass.getJiraFlagStatus();
 	}
 	
-    @AfterClass
-    public static void zipTestReportsFolder() throws IOException {
-		System.out.println("Started zipping results folder");
-    	ZipTestResults.zipTestReportsFolder();
-    	System.out.println("Finished zipping results folder");
-    }
-    
+	@AfterClass
+	public static void zipTestReportsFolder() throws IOException {
+		ZipTestResults.zipTestReportsFolder();
+		System.out.println("Finished zipping results folder");
+		if (SetupClass.getJiraFlag().equals("true")) {
+			for (String failedTest : SetupClass.failedScenarios) {
+				new RaiseJiraTicket(failedTest);
+			}
+		}
+	}    
     
 }

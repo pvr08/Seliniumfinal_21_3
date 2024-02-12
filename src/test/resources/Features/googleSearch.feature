@@ -18,5 +18,4 @@ Feature: Feature to test google
     And user is on google search
     And user enters a text in search box
     And validate api
-    Then End of the test
 
