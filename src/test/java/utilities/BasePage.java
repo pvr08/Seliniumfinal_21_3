@@ -2,12 +2,12 @@ package utilities;
 
 import java.util.List;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 import StepDefinitions.SetupClass;
 import io.cucumber.java.Scenario;
 
@@ -103,7 +103,7 @@ public class BasePage {
 
 	public void validateElementPresentAssertion(String locator) throws InterruptedException {
 
-		Assert.assertEquals(verifyElementPresent(locator), true, " Element Present");
+		Assert.assertEquals(verifyElementPresent(locator), true);
 
 	}
 
