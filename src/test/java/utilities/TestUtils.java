@@ -21,7 +21,6 @@ public class TestUtils {
         try (InputStream input = new FileInputStream(filePath)) {
             // Load properties from the input stream
             properties.load(input);
-            System.out.println("Properties loaded successfully.");
         } catch (IOException e) {
             System.err.println("Error loading properties file: " + e.getMessage());
             e.printStackTrace();

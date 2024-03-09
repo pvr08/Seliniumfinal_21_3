@@ -1,12 +1,4 @@
-package StepDefinitions;
-import org.openqa.selenium.WebDriver;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import utilities.BasePage;
-import utilities.Constants;
-import utilities.TestUtils;
+
 
 public class GoogleSearchResults {
 	 
@@ -56,3 +48,4 @@ public class GoogleSearchResults {
 	}
 
 }
+
