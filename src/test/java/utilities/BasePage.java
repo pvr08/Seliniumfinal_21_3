@@ -124,13 +124,7 @@ public class BasePage {
 	        driver.findElement(By.xpath(optionXPath)).click();
 	    }
 
-	public void switchToIframe() {
-		driver.switchTo().frame(0);
-	}
-
-	public void backToNormal() {
-		driver.switchTo().defaultContent();
-	}
+	
 
 	public void elementHighlighter(String locator) {
 		try {

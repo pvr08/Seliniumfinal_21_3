@@ -1,4 +1,19 @@
+package StepDefinitions;
+import java.io.IOException;
 
+import org.openqa.selenium.WebDriver;
+import com.aventstack.extentreports.Status;
+
+import io.cucumber.java.Scenario;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import utilities.BasePage;
+import utilities.Constants;
+import utilities.DeleteReports;
+import utilities.TestUtils;
+import utilities.ZipTestResults;
 
 public class GoogleSearchResults {
 	 
@@ -40,7 +55,7 @@ public class GoogleSearchResults {
 		System.out.println("hits enter");
 	}
 
-	@Then("end of test cases")
+	@Then("End of the test")
 	public void user_is_navigated_to_search_results_page() {
 		System.out.println("user is navigated to search results page");
 		driver.close();

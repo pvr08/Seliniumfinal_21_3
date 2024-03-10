@@ -47,33 +47,28 @@ public class ContactUsPage {
 
 @And("user is able to see name label")
 	public void user_is_able_to_see_name_label() throws InterruptedException {
-	basePage.scrollToElement(Constants.GET_SEE_NAME_LABLE);
-	
-    basePage.validateElementPresentAssertion(Constants.GET_SEE_NAME_LABLE);  
+        basePage.validateElementPresentAssertion(Constants.GET_SEE_NAME_LABLE);  
 		System.out.println("Passed");
 	    
 	    boolean isNameLabelTextCorrect = basePage.compareText(Constants.GET_SEE_NAME_LABLE, "Your Name *");
-		 System.out.println(isNameLabelTextCorrect);
+		  System.out.println(isNameLabelTextCorrect);
 		
 		
 	}
 	
 	@And("user is able to see email label")
 	public void user_is_able_to_see_email_label() throws InterruptedException {
-		basePage.scrollToElement(Constants.GET_SEE_EMAIL_LABLE);
-		basePage.findElement(Constants.GET_SEE_EMAIL_LABLE);
 		 basePage.validateElementPresentAssertion(Constants.GET_SEE_EMAIL_LABLE);  
 		
 	    
 	    boolean isEmailLabelTextCorrect = basePage.compareText(Constants.GET_SEE_EMAIL_LABLE, "Your Email *");
-		System.out.println(isEmailLabelTextCorrect);
+		  System.out.println(isEmailLabelTextCorrect);
 		
 		
 }
 	
 	@And("user is able to see contact number label")
 	public void user_is_able_to_see_contact_number_label() throws InterruptedException {
-		basePage.scrollToElement(Constants.GET_SEE_CONTACT_LABLE);
 		 basePage.validateElementPresentAssertion(Constants.GET_SEE_CONTACT_LABLE);  
 			
 		    
@@ -83,7 +78,6 @@ public class ContactUsPage {
 
 	@And("user is able to see subject label")
 	public void user_is_able_to_see_subject_label() throws InterruptedException {
-		basePage.scrollToElement(Constants.GET_SEE_SUBJECT_LABLE);
 		 basePage.validateElementPresentAssertion(Constants.GET_SEE_SUBJECT_LABLE);  
 			
 		    
@@ -93,7 +87,6 @@ public class ContactUsPage {
 
 	@And("user is able to see message label")
 	public void user_is_able_to_see_message_label() throws InterruptedException {
-		basePage.scrollToElement(Constants.GET_SEE_MESSAGE_LABLE);
 		basePage.validateElementPresentAssertion(Constants.GET_SEE_MESSAGE_LABLE);  
 		
 	    
@@ -103,8 +96,7 @@ public class ContactUsPage {
 
 	@And("user is able to see send message button")
 	public void user_is_able_to_see_send_message_button() throws InterruptedException {
-		basePage.scrollToElement(Constants.GET_SEE_MESSAGE_BUTTON_LABLE);
-		basePage.validateElementPresentAssertion(Constants.GET_SEE_MESSAGE_BUTTON_LABLE);  
+basePage.validateElementPresentAssertion(Constants.GET_SEE_MESSAGE_BUTTON_LABLE);  
 		
 	    
 	    boolean isSendMessageLabelTextCorrect = basePage.compareText(Constants.GET_SEE_MESSAGE_BUTTON_LABLE, "Send Message");
@@ -116,36 +108,32 @@ public class ContactUsPage {
   	
   	@And("user is able to see name text field")
   	public void user_is_able_to_see_name_field() throws InterruptedException { 
-  		basePage.scrollToElement(Constants.GET_SEE_NAME_FIELD);
-  		basePage.validateElementPresentAssertion(Constants.GET_SEE_NAME_FIELD);
+  		
+  		 basePage.validateElementPresentAssertion(Constants.GET_SEE_NAME_FIELD);
   		
   		
   	}
   	
   	@And("user is able to see email text field")
   	public void user_is_able_to_see_email_text_field() throws InterruptedException {
-  		basePage.scrollToElement(Constants.GET_SEE_EMAIL_FIELD);
   		basePage.validateElementPresentAssertion(Constants.GET_SEE_EMAIL_FIELD);  
   		
   	}
   	
   	@And("user is able to see contact number text field")
   	public void user_is_able_to_see_contact_number_text_field() throws InterruptedException {
-  		basePage.scrollToElement(Constants.GET_SEE_CONTACT_FIELD);
-  		basePage.validateElementPresentAssertion(Constants.GET_SEE_CONTACT_FIELD);
+  		 basePage.validateElementPresentAssertion(Constants.GET_SEE_CONTACT_FIELD);
   		
   	}
 
   	@And("user is able to see subject text field")
   	public void user_is_able_to_see_subject_text_field() throws InterruptedException {
-  		basePage.scrollToElement(Constants.GET_SEE_SUBJECT_FIELD);
   		basePage.validateElementPresentAssertion(Constants.GET_SEE_SUBJECT_FIELD);
   		
   	}
 
   	@And("user is able to see message text field")
   	public void user_is_able_to_see_message_text_field() throws InterruptedException {
-  		basePage.scrollToElement(Constants.GET_SEE_MESSAGE_FIELD);
   		basePage.validateElementPresentAssertion(Constants.GET_SEE_MESSAGE_FIELD);
   		
   	}
@@ -155,7 +143,6 @@ public class ContactUsPage {
   	
   	@And("user is able to see the phone number")
   	public void user_is_able_to_see_the_phone_number() throws InterruptedException {
-  		basePage.scrollToElement(Constants.GET_SEE_PHONE_NUM);
   		basePage.validateElementPresentAssertion(Constants.GET_SEE_PHONE_NUM);
   		
   		boolean isPhnNOTextCorrect = basePage.compareText(Constants.GET_SEE_PHONE_NUM, "Phone Number");
@@ -164,7 +151,6 @@ public class ContactUsPage {
 
   	@And("user is able to see Location")
   	public void user_is_able_to_see_Location() throws InterruptedException {
-  		basePage.scrollToElement(Constants.GET_SEE_LOCATION);
   		basePage.validateElementPresentAssertion(Constants.GET_SEE_LOCATION);
   		
   		boolean isLocationTextCorrect = basePage.compareText(Constants.GET_SEE_LOCATION, "Location");
@@ -173,7 +159,6 @@ public class ContactUsPage {
 
   	@And("user is able to see email address")
   	public void user_is_able_to_see_email_address() throws InterruptedException {
-  		basePage.scrollToElement(Constants.GET_SEE_EMAIL_ADDRESS);
   		basePage.validateElementPresentAssertion(Constants.GET_SEE_EMAIL_ADDRESS);
   		
   		boolean isEmailAddressTextCorrect = basePage.compareText(Constants.GET_SEE_EMAIL_ADDRESS, "Email Address");
@@ -183,17 +168,14 @@ public class ContactUsPage {
   	
 
  // 4th scenario
-    @And("user is able see google maps iframe")
+    @And("user is able")
     public void user_is_able_to_see_google_maps_in_contactus_page() throws InterruptedException {
-    	
-    	Thread.sleep(1000);
-
-    	basePage.scrollToElement(Constants.GET_SEE_GMAPS);
-    	//switchToIframe();
-    	Thread.sleep(3000);
-        basePage.validateElementPresentAssertion(Constants.GET_SEE_GMAPS);
         
-        //backToNormal();
+    	switchToIframe();
+        
+       boolean validateElementPresent =  basePage.verifyElementPresent(Constants.GET_SEE_GMAPS);
+        
+        backToNormal();
         
     }
   	
@@ -203,35 +185,31 @@ public class ContactUsPage {
   	
   	@And("user is able to see facebook icon in contact us page")
   	public void user_is_able_to_see_facebook_icon_in_contactus_page() throws InterruptedException {
-  		basePage.scrollToElement(Constants.GET_SEE_FACEBOOK_ICON);
   		basePage.validateElementPresentAssertion(Constants.GET_SEE_FACEBOOK_ICON);  
   		
   	}
   	
   	@And("user is able to see twitter icon in contact us page")
   	public void user_is_able_to_see_twitter_icon_in_contactus_page() throws InterruptedException {
-  		basePage.scrollToElement(Constants.GET_SEE_TWITTER_ICON);
   		basePage.validateElementPresentAssertion(Constants.GET_SEE_TWITTER_ICON);
   		
   	}
 
   	@And("user is able to see insta icon in contact us page")
   	public void user_is_able_to_see_insta_icon_in_contactus_page() throws InterruptedException {
-  		basePage.scrollToElement(Constants.GET_SEE_INSTA_ICON);
   		basePage.validateElementPresentAssertion(Constants.GET_SEE_INSTA_ICON);
   			
   		}
 
   	@And("user is able to see linkedin icon in contact us page")
   	public void user_is_able_to_see_linkedin_icon_in_contactus_page() throws InterruptedException {
-  		basePage.scrollToElement(Constants.GET_SEE_LINKEDIN_ICON);
   		basePage.validateElementPresentAssertion(Constants.GET_SEE_LINKEDIN_ICON);
   		
   		}
   	
   	
   	public void switchToIframe() {
-        driver.switchTo().frame(0); 
+        driver.switchTo().frame(0); // Assuming the iframe is the first one on the page
     }
 
     public void backToNormal() {
