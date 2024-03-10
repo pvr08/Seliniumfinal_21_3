@@ -16,7 +16,7 @@ public class TestUtils {
         return properties.getProperty(key);
     }
     
-    private static Properties loadProperties(String filePath) {
+    public static Properties loadProperties(String filePath) {
         Properties properties = new Properties();
         try (InputStream input = new FileInputStream(filePath)) {
             // Load properties from the input stream
