@@ -7,10 +7,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import StepDefinitions.SetupClass;
 import io.cucumber.java.Scenario;
+
+import org.openqa.selenium.interactions.Actions;
 
 public class BasePage {
 	protected WebDriver driver;
@@ -78,7 +79,7 @@ public class BasePage {
 	public boolean compareText(String locator, String textToCompare) {
 
 		String actualText = driver.findElement(getBy(locator)).getAttribute("textContent");
-		Assert.assertEquals(actualText, textToCompare, "Comparing Text");
+		Assert.assertEquals("Comparing Text", textToCompare,actualText );
 		if (actualText.equals(textToCompare)) {
 			return true;
 		} else {
