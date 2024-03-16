@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import utilities.DeleteReports;
+import utilities.EmailSender;
 import utilities.RaiseJiraTicket;
 import utilities.ZipTestResults;
 
@@ -37,6 +38,7 @@ public class TestRunner {
 				new RaiseJiraTicket(failedTest);
 			}
 		}
+		EmailSender.Email();
 	}    
     
 }
