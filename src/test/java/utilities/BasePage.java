@@ -79,7 +79,9 @@ public class BasePage {
 	public boolean compareText(String locator, String textToCompare) {
 
 		String actualText = driver.findElement(getBy(locator)).getAttribute("textContent");
-		Assert.assertEquals("Comparing Text", textToCompare,actualText );
+
+		Assert.assertEquals("Comparing Text", actualText, textToCompare);
+
 		if (actualText.equals(textToCompare)) {
 			return true;
 		} else {

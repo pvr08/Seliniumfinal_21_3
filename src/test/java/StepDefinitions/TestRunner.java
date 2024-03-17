@@ -34,9 +34,12 @@ public class TestRunner {
 		ZipTestResults.zipTestReportsFolder();
 		System.out.println("Finished zipping results folder");
 		if (SetupClass.getJiraFlag().equals("true")) {
+			int count = 0;
 			for (String failedTest : SetupClass.failedScenarios) {
 				new RaiseJiraTicket(failedTest);
+				count++;
 			}
+			System.err.println("System has raised "+ count +" bug/bugs");
 		}
 		EmailSender.Email();
 	}    

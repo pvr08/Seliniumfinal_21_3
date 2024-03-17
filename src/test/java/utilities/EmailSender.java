@@ -15,7 +15,8 @@ public class EmailSender {
 	public static void Email() {
 		String projectPath = System.getProperty("user.dir");
 
-		String to = "kanakamamidivishal@gmail.com";
+		String to = "";
+
 
 		String from = "casuallysunny12@gmail.com";
 
@@ -27,7 +28,8 @@ public class EmailSender {
 
 		Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication("casuallysunny12@gmail.com", "xgzzahgxexarittz");
+				return new PasswordAuthentication("casuallysunny12@gmail.com", "Password Here");
+
 			}
 		});
 //	      session.setDebug(true);
